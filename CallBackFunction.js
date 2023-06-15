@@ -2,21 +2,23 @@
 //any function that has passed as an argument to another function so 
 //that it is executed in that other function is called as callback function
 
-function sum(f, t){
-    var d = f + t;
-    return d;
+function funData(CallBackFunc){
+    setTimeout(function (){
+        const data = 'call back function';
+        CallBackFunc(data);
+    },3000);
+    
 }
 
-function div(){
-    let g = 4/2;
-    console.log(g);
+function funData2(data){
+    console.log("data"+data);
 }
 
-sum(3,4,div);
+funData(funData2);
 
 //Synchronous-executes line by line- Blocking
 
-console.log(div);
+//console.log(div);
 
 let d = 5 * 3;
 console.log(d);
@@ -37,3 +39,8 @@ console.log("Hii");
 setTimeout(()=>{
     console.log("asynchronous");
 },50);
+
+function print(){
+    console.log('print msg');
+}
+setTimeout(print, 200);
